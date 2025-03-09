@@ -53,24 +53,21 @@ streamlit run app.py
 #### Customization 🎨
 Change UI Colors & Styles
 
-Modify the CSS in app.py to change the UI appearance:
+### Modify the CSS in app.py to change the UI appearance:
 
 st.markdown(
+    
     """
+    
     <style>
-        body {
-            background-color: #ffffff; /* Background color */
-            color: #2e590e; /* Text color */
-            font-family: Arial, sans-serif;
-        }
-        .stFileUploader {
-            background-color: #f8f9fa !important; /* File uploader background */
-            border: 2px solid #4CAF50 !important; /* Border color */
-            border-radius: 10px !important;
-        }
+
+    
     </style>
+    
     """,
+    
     unsafe_allow_html=True
+
 )
 Change Mood-to-Song Mapping
 
