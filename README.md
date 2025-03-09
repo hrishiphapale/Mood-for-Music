@@ -40,35 +40,32 @@ Custom CSS 🎨 - UI styling
 
 #### Installation & Setup 🚀
 1️⃣ Clone the Repository
-git clone https://github.com/yourusername/mood-song-recommendation.git
-
-cd mood-song-recommendation
+    
+    git clone https://github.com/yourusername/mood-song-recommendation.git
+    cd mood-song-recommendation
 
 2️⃣ Install Dependencies
-pip install -r requirements.txt
+    
+    pip install -r requirements.txt
 
 3️⃣ Run the Streamlit App
-streamlit run app.py
+        
+    streamlit run app.py
 
 #### Customization 🎨
 Change UI Colors & Styles
 
 ### Modify the CSS in app.py to change the UI appearance:
 
-st.markdown(
-    
-    """
-    
-    <style>
-
-    
-    </style>
-    
-    """,
-    
-    unsafe_allow_html=True
-
-)
+        st.markdown(
+            """
+            <style>
+        
+            
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
 Change Mood-to-Song Mapping
 
 Modify the mood-to-song dataset (songs.csv) to include your own song recommendations.
