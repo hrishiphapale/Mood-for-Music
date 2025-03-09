@@ -80,25 +80,103 @@ def recommend_songs(mood, df):
     
     return mood_songs[['name', 'artist', 'album']].sample(min(5, len(mood_songs)))
 
-# Streamlit UI
-st.title("Mood-Based Song Recommendation")
-st.write("Upload an image, and we'll recommend songs based on your mood!")
+
+import streamlit as st
+from PIL import Image
+
+# Custom CSS for styling
+st.markdown(
+    """
+    <style>
+        body {
+            background-color: #a1c785 !important; /* Change background color here */
+            color: #2e590e; /* Change text color here */
+            font-family: Arial, sans-serif;
+        }
+        .stApp {
+        background-color: #a1c785;
+        .title {
+            color: #2e590e; /* Title color */
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: #2e590e; /* Subtitle color */
+            font-size: 16px;
+        }
+        
+        .stFileUploader {
+            background-color: #a1c785 !important;  /* Change background color */
+            border: 2px solid #2e590e !important;  /* Change border color */
+            border-radius: 10px !important;  /* Optional: Rounded corners */
+            padding: 10px !important;
+        }
+
+        
+        .stFileUploader > div {
+            background-color: #a1c785 !important;  /* Green background */
+            color: white !important;  /* White text */
+            border-radius: 10px !important;  /* Optional: Rounded corners */
+            padding: 10px !important;
+        }
+        .content-container {
+            display: flex;
+            color: #a1c785
+            align-items: center;
+        }
+        .uploaded-img img {
+            border-radius: 10px;
+            width: 150px; /* Adjust image size */
+        }
+        .result-text {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2e590e; /* Text color for detected mood */
+            margin-left: 20px; /* Space between image and text */
+        }
+        .table-container table {
+            background-color: transparent !important; /* Makes table content transparent */
+        }
+
+        .table-container th, .table-container td {
+            background-color: transparent !important; /* Ensures cells remain transparent */
+            color: #2e590e; /* Adjust text color */
+            border: 1px solid #064635; /* Keeps borders visible */
+        }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+st.markdown('<p class="title"> 🎵   Mood-Based Song Recommendation</p>', unsafe_allow_html=True)
+st.markdown('<p class="subtitle">Upload an image, and we\'ll recommend songs based on your mood!</p>', unsafe_allow_html=True)
 
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
-    st.image(image, caption="Uploaded Image", use_column_width=True)
-    
-    try:
-        detected_emotion, predicted_song_mood = predict_mood(image, mood_classification_model)
-        st.write(f"**Detected Facial Emotion:** {detected_emotion.capitalize()}")
-        st.write(f"**Mapped Mood for Songs:** {predicted_song_mood}")
 
-        recommended_songs = recommend_songs(predicted_song_mood, df)
-        st.write("**Recommended Songs:**")
-        st.write(recommended_songs)
-    
-    except Exception as e:
-        st.error(f"An error occurred: {e}")
-    
+    # Displaying image and results in a row
+    st.markdown('<div class="content-container">', unsafe_allow_html=True)
+    col1, col2 = st.columns([1, 2])
+
+    with col1:
+        st.image(image, caption="Uploaded Image", width=150)
+
+    with col2:
+        try:
+            detected_emotion, predicted_song_mood = predict_mood(image, mood_classification_model)
+            st.markdown(f'<p class="result-text">🎭 Detected Facial Emotion: <b>{detected_emotion.capitalize()}</b></p>', unsafe_allow_html=True)
+            st.markdown(f'<p class="result-text">🎶 Mapped Mood for Songs: <b>{predicted_song_mood}</b></p>', unsafe_allow_html=True)
+        except:
+            pass  # Hides any error message
+
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Table of recommended songs
+    recommended_songs = recommend_songs(predicted_song_mood, df)
+    st.markdown('<div class="table-container">', unsafe_allow_html=True)
+    st.markdown('<p class="result-text">🎼 Recommended Songs:</p>', unsafe_allow_html=True)
+    st.write(recommended_songs)
+    st.markdown('</div>', unsafe_allow_html=True)
