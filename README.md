@@ -1,10 +1,10 @@
 # Mood-for-Music
 
 ## Mood-Based Song Recommendation 🎵😃
-#### Overview
+### Overview
 This AI-powered application analyzes facial expressions from uploaded images and recommends songs based on detected emotions. Built using Streamlit, it integrates image processing, deep learning, and a music recommendation engine to create a personalized experience.
 
-#### Features 🌟
+### Features 🌟
 ✔️ Upload an image to detect facial expressions.
 
 ✔️ AI-powered mood classification.
@@ -15,30 +15,30 @@ This AI-powered application analyzes facial expressions from uploaded images and
 
 ✔️ Fully customizable UI (colors, fonts, styles).
 
-#### Technologies Used 🛠
-##### Programming & Frameworks
+### Technologies Used 🛠
+#### Programming & Frameworks
 Python 🐍 - Core programming language
 
 Streamlit 🎨 - Web-based UI framework
 
-##### Machine Learning & AI
+#### Machine Learning & AI
 TensorFlow/Keras 🤖 - Deep learning for mood classification
 
 Scikit-learn 📊 - ML models & preprocessing
 
 OpenCV 📷 - Image processing & face detection
 
-##### Data Handling & Processing
+#### Data Handling & Processing
 Pandas 📊 - Data manipulation
 
 NumPy 🔢 - Numerical computations
 
-##### Other Technologies
+#### Other Technologies
 Matplotlib/Seaborn 📈 - Data visualization
 
 Custom CSS 🎨 - UI styling
 
-#### Installation & Setup 🚀
+### Installation & Setup 🚀
 1️⃣ Clone the Repository
     
     git clone https://github.com/yourusername/mood-song-recommendation.git
@@ -52,10 +52,10 @@ Custom CSS 🎨 - UI styling
         
     streamlit run app.py
 
-#### Customization 🎨
+### Customization 🎨
 Change UI Colors & Styles
 
-### Modify the CSS in app.py to change the UI appearance:
+## Modify the CSS in app.py to change the UI appearance:
 
         st.markdown(
             """
@@ -67,10 +67,9 @@ Change UI Colors & Styles
             unsafe_allow_html=True
         )
 Change Mood-to-Song Mapping
+### Modify the mood-to-song dataset (songs.csv) to include your own song recommendations.
 
-Modify the mood-to-song dataset (songs.csv) to include your own song recommendations.
-
-Future Enhancements and scope for project iprovement 🚀
+### Future Enhancements and scope for project iprovement 🚀
 
 ✅ Support for real-time webcam image capture.
 
@@ -78,4 +77,4 @@ Future Enhancements and scope for project iprovement 🚀
 
 ✅ More advanced emotion recognition models for better accuracy.
 
-Developer - Hrishikesh Phapale
+### Developer - Hrishikesh Phapale
