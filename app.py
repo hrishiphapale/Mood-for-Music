@@ -7,9 +7,9 @@ import pandas as pd
 import os
 
 # Define model paths
-MOOD_CLASSIFICATION_MODEL_PATH = r"D:\Hrishi DS\Capstone Project\Mood-for-Music\models\mood_classification_model.h5"
-MOOD_TO_SONG_MODEL_PATH = r"D:\Hrishi DS\Capstone Project\Mood-for-Music\models\mood_to_song_generator_model.joblib"
-DATA_PATH = r"D:\Hrishi DS\Capstone Project\Mood-for-Music\data_moods.csv"
+MOOD_CLASSIFICATION_MODEL_PATH = "models/mood_classification_model.h5"
+MOOD_TO_SONG_MODEL_PATH = "models/mood_to_song_generator_model.joblib"
+DATA_PATH = "data/data_moods.csv"
 
 # Ensure models and data exist
 if not os.path.exists(MOOD_CLASSIFICATION_MODEL_PATH):
